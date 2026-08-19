@@ -1,92 +1,76 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나의 소개 페이지입니다</title>
+    <title>자기소개</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
-            font-family: Arial, "Noto Sans KR", sans-serif;
-            background: #f5f5f5;
-            color: #222;
-            line-height: 1.7;
+            font-family: 'Noto Sans KR', 'Inter', sans-serif;
         }
-
-        .container {
-            max-width: 760px;
-            margin: 60px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            text-align: center;
+        /* Smooth fade-in animation on load */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-
-        .profile {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        .intro {
-            font-size: 18px;
-        }
-
-        .section {
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid #ddd;
-        }
-
-        .tags span {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 14px;
-            background: #eee;
-            border-radius: 20px;
+        .animate-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 </head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-4 antialiased relative overflow-hidden">
 
-<body>
-    <main class="container">
-        <!-- profile.jpg 파일을 index.html과 같은 폴더에 넣으세요 -->
-        <img class="profile" src="my photo.png" alt="프로필 이미지">
+    <!-- Ambient Background Glows for visual depth -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-sky-600/20 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- 아래 내용을 나의 정보로 수정하세요 -->
-        <h1>안녕하세요. 저는 최시열 입니다.</h1>
-        <p class="intro">
-            오랫동안 공직에서 근무했습니다.<br>
-            요즘에는 여행과 사진 촬영을 즐기고 있습니다.<br>
-            앞으로 AI를 활용해 새로운 것을 만들어보고 싶습니다.
+    <!-- Central Profile Card Container -->
+    <main class="w-full max-w-md bg-slate-800/80 backdrop-blur-md border border-slate-700/60 rounded-3xl p-8 md:p-10 shadow-2xl animate-fade-in text-center relative z-10">
+        
+        <!-- 1. 프로필 사진 -->
+        <div class="relative w-32 h-32 mx-auto mb-6">
+            <img 
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" 
+                alt="프로필 사진" 
+                class="w-full h-full object-cover rounded-full border-4 border-slate-700 shadow-md ring-2 ring-indigo-500/50"
+                onerror="this.onerror=null; this.src='https://placehold.co/160x160/334155/F8FAFC?text=Profile';"
+            />
+        </div>
+
+        <!-- 2. 이름 -->
+        <h1 class="text-2xl md:text-3xl font-bold text-white tracking-tight mb-2">
+            최시열
+        </h1>
+
+        <!-- 3. 한 줄 소개 -->
+        <p class="text-indigo-400 font-medium text-sm md:text-base mb-6">
+            재미있는 사람
         </p>
 
-        <section class="section">
-            <h2>제가 좋아하는 것</h2>
-            <div class="tags">
-                <span>여행</span>
-                <span>사진</span>
-                <span>독서</span>
-            </div>
-        </section>
+        <!-- Divider line -->
+        <div class="w-12 h-0.5 bg-slate-700 mx-auto mb-6 rounded-full"></div>
 
-        <section class="section">
-            <h2>앞으로 해보고 싶은 일</h2>
-            <p>AI를 배우고 활용하면서 새로운 취미와 활동에 도전하고 싶습니다.</p>
-        </section>
+        <!-- 4. 짧은 자기소개 -->
+        <div class="text-slate-300 text-sm md:text-base leading-relaxed space-y-2 text-center break-keep">
+            <p>
+                여행과 마라톤 그리고 수영을 좋아하는 사람
+            </p>
+        </div>
+
     </main>
-</body>
 
+</body>
 </html>
